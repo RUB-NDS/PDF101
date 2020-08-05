@@ -1,0 +1,14 @@
+The files in this directory have been created using various PDF editors.
+Afterwards, the documents have been uncompressed to allow easy grepping:
+
+$ grep -a '/Author' *.pdf
+02-foxit-phantom.pdf:<< /Author (Karla) /CreationDate (D:20190630162024+00'00') /ModDate (D:20190630162241+00'00') /Producer (Foxit Phantom - Foxit Software Inc.) /Title (Untitled) >>
+04-perfect-premium.pdf:<< /Author (Karla) /CreationDate (D:20190630162254+01'00') /Creator (soft Xpansion Perfect PDF 10) /ModDate (D:20190630162426+01'00') /Producer (PDF Xpansion 8.9.9.0) >>
+07-nuance-power.pdf:<< /Author (test) /CreationDate (D:20191127191404+01'00') /Creator (Nuance Power PDF) /ModDate (D:20191127191547+01'00') /Producer (Nuance Power PDF) >>
+08-iskysoft-editor.pdf:<< /Author (Karla) /CreationDate (D:20190630162702+01'00') /Creator (PDF Editor 6 Professional) /ModDate (D:20190630162702+01'00') /Producer (PDF Editor 6 Professional) /Title (Unbenannt) >>
+10-soda-pdf-desktop.pdf:<< /Author (John Smith) /CreationDate (D:20191127191750+01'00') /Creator (Soda PDF) /ModDate (D:20191127191833+01'00') /Producer (Soda PDF) >>
+11-pdf-architect.pdf:<< /Author (Chen Lee) /CreationDate (D:20191127155628Z) /Creator (PDF Architect 7) /ModDate (D:20191127160215Z) /Producer (PDF Architect 7) >>
+12-pdfelement-pro.pdf:<< /Author (Karla) /CreationDate (D:20190630162721+01'00') /Creator (PDFelement 6 Professional) /ModDate (D:20190630162721+01'00') /Producer (PDFelement 6 Professional) /Title (Unbenannt) >>
+
+Nitro Pro seems to have its own proprietary technique to add metadata:
+<< /AP << /N 9 0 R >> /BS << /W 0 >> /Contents (Test file) /CreationDate (D:20191127152824Z) [...] /T (Karla) /Type /Annot >>

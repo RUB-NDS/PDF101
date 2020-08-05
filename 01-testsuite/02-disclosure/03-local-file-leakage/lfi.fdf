@@ -1,0 +1,10 @@
+%FDF-1.3
+1 0 obj
+  << 
+    /FDF << /Fields [<< /V (John Smith) /T (x) >>] 
+    /F (06-import-data-external.pdf) >> 
+  >> 
+endobj
+trailer
+  << /Root 1 0 R >>
+%%EOF

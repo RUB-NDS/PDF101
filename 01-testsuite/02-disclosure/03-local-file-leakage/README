@@ -1,0 +1,10 @@
+This document contains test cases to include local files of
+various types (JPG, TXT, PDF, XML, FDF) into a PDF document.
+It does not include code to actually leak the included file
+(which is dependent on the backchannels provided by the PDF
+application and can be found in the exploits/ directory).
+
+If a local file on disk is is actually accessed (read) can
+be tested using the Sysinternals Process Monitor [1].
+
+[1] https://docs.microsoft.com/sysinternals/downloads/procmon

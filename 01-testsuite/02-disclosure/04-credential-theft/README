@@ -1,0 +1,6 @@
+This directory contains test files to leak NTLM hashes
+to evil.com when opened in a PDF consumer application.
+Use Responder [1] on as rogue authentication server on
+evil.com to verify incoming NTLM auth requests.
+
+[1] https://github.com/SpiderLabs/Responder

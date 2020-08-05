@@ -1,0 +1,3 @@
+The PDF documents in this directory try to modify
+their own form data once the document is printed
+by the user, based on various techniques.

@@ -1,0 +1,9 @@
+*****************************************************************
+Artifacts for "Portable Document Flaws 101" at Black Hat USA 2020
+*****************************************************************
+
+• 01-testsuite/ -- comprehensive test suite of malicious PDF documents
+• 02-exploits/  -- actual exploit files for 28 tested PDF applications
+• 03-hidden/    -- results for evitable metadata and revision recovery
+• 04-crawled/   -- results from crawling the Cisco Umbrella 1m domains
+• 05-scripts/   -- helper scripts to generate testcases, deflate, etc.

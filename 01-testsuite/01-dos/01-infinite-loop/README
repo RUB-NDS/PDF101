@@ -1,0 +1,3 @@
+This directory contains specially-crafted edge case PDF documents which may
+trick a PDF consuming application into an endless loop, recursion, or other
+means to consume high amounts of CPU time or crash.

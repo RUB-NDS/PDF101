@@ -1,0 +1,5 @@
+This document contains test cases to write to local files on disk
+once the document is opened. If a file is actually written can be
+tested using the Sysinternals Process Monitor [1].
+
+[1] https://docs.microsoft.com/sysinternals/downloads/procmon

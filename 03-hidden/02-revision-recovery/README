@@ -1,0 +1,13 @@
+This directory contains the scan of a document from World War I, which
+describes secret writing techniques obtained from [1]. Selectable text
+has been added to the upper left side of the document.
+
+To test if previous document versions be recovered, the document can
+be opened in a PDF editor and the contained text or scanned image is
+to be redacted, edited or deleted. Afterwards the new document is to
+be saved and analyzed for remaining information, still contained in
+the file. This can be achieved, for example, using:
+
+$ qpdf --stream-data=uncompress file.pdf result.pdf
+
+[1] https://www.cia.gov/library/readingroom/collection/cia-declassifies-oldest-documents-us-government-collection

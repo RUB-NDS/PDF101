@@ -1,0 +1,5 @@
+This directory contains PDF compression bombs (500B on disk to 10GB in memory).
+Note the compressed stream can be used multiple times in a single PDF document.
+
+The PDF files have been gzipped as a precaution mechanism, in order to prevent
+DoS when accidentally previewing them. Gunzip them before the actual testing.

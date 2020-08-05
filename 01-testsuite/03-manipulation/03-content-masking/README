@@ -1,0 +1,138 @@
+This directory contains specially-crafted edge case PDF documents,
+which display either a blue page with a certain text or a red page
+with a different text, depending on the PDF consumer application.
+
+=======================[ 01-stm-confusion ]=======================
+
+• [A] Endstream Confusion
+  ‣ A1-stream-length-to-long-1.pdf:  /Length 200, but endstream after 90
+  ‣ A2-stream-length-to-long-2.pdf:  /Length 200, but %endstream after 90
+  ‣ A3-stream-length-to-long-3.pdf:  /Length 200, but endstreamx after 90
+  ‣ A4-stream-length-to-short.pdf:   /Length 90, but endstream after 190
+  ‣ A5-stream-length-missing.pdf:    << >> stream […] endstream […] endstream
+
+• [B] Two Length Fields
+  ‣ B1-multiple-length-1.pdf:        << /Length 190 /Length 95 >>
+  ‣ B2-multiple-length-2.pdf:        << /Length 95 /Length 190 >>
+
+• [C] Wrong EOL Marker
+  ‣ C1-stream-eol-none.pdf:          stream q 1 0 […]
+  ‣ C2-stream-eol-bomb.pdf:          stream💣 q 1 0 […]
+  ‣ C3-stream-eol-bomb-lf.pdf:       stream💣<LF> q 1 0 […]
+  ‣ C4-stream-eol-nullbyte.pdf:      stream<00> q 1 0 […]
+  ‣ C5-stream-eol-nullbyte-lf.pdf:   stream<00><LF> q 1 0 […]
+  ‣ C6-stream-eol-onebyte.pdf:       stream<01> q 1 0 […]
+  ‣ C7-stream-eol-onebyte-lf.pdf:    stream<01><LF> q 1 0 […]
+  ‣ C8-stream-eol-tab.pdf:           stream<11> q 1 0 […]
+  ‣ C9-stream-eol-tab-lf.pdf:        stream<11><LF> q 1 0 […]
+  ‣ CX-stream-eol-cr.pdf:            stream<CR> q 1 0 […]
+
+• [D] Syntax Errors
+  ‣ D1-prepend-bomb.pdf:             💣 q 1 0 […]
+  ‣ D2-prepend-garbage.pdf:          x q 1 0 […]
+  ‣ D3-prepend-nullbyte.pdf:         <00> q 1 0 […]
+  ‣ D4-prepend-onebyte.pdf:          <01> q 1 0 […]
+  ‣ D5-syntax-uppercase.pdf:         […] RE […] TJ ET
+
+• [E] Hide Second Stream
+  ‣ E1-commented-out-1.pdf:          % q 1 0.3 0.3 […]
+  ‣ E2-commented-out-2.pdf:          % q 1 0.3 0.3 […] // within separate object
+  ‣ E3-very-long-line.pdf:           100.000 whitespaces || q 1 0.3 0.3 […]
+  ‣ E4-unknown-filter.pdf:           /Filter /Unknown
+
+=======================[ 02-obj-confusion ]=======================
+
+• [F] Object Number Confusion
+  ‣ F1-duplicate-obj-number.pdf:     s/'5 0 obj'/'4 0 obj'/
+  ‣ F2-array-in-contents.pdf:        [4 0 R [5 0 R]]
+  ‣ F3-multiple-contents.pdf:        /Contents [4 0 R] /Contents [5 0 R]
+
+• [G] Object Commented Out
+  ‣ G1-obj-commented-out-1.pdf:      %5 0 obj […] 0000000489
+  ‣ G2-obj-commented-out-2.pdf:      %5 0 obj […] 0000000490
+  ‣ G3-obj-commented-out-3.pdf:      %5 0 obj […] 0000000491
+  ‣ G4-endstm-commendted-out.pdf:    %endstream
+  ‣ G5-endobj-commendted-out.pdf:    %endobj
+
+• [H] Syntax Errors
+  ‣ H1-bomb-in-contents-key.pdf:     /Contents💣
+  ‣ H2-bomb-in-contents-val.pdf:     [4 0 R 💣 5 0 R]
+  ‣ H3-bomb-in-obj-number.pdf:       5 0 obj💣
+  ‣ H4-onebyte-in-contents-key.pdf:  /Contents<01>
+  ‣ H5-onebyte-in-contents-val.pdf:  [4 0 R <01> 5 0 R]
+  ‣ H6-onebyte-in-obj-number.pdf:    5 0 obj<01>
+
+• [I] Missing Endstream
+  ‣ I1-missing-endstream.pdf:        s/endstream/''/
+  ‣ I2-missing-endobj.pdf:           s/endobj/''/
+  ‣ I3-missing-endstm-endobj.pdf:    s/endstream<LF>endstream/''/g
+  ‣ I4-endstreamx.pdf:               s/endstream/'endstreamx'/
+  ‣ I5-endobjx.pdf:                  s/endobj/'endobjx'/
+
+• [J] Upper/Lowercase
+  ‣ J1-uppercase-OBJ.pdf:            s/obj/OBJ
+  ‣ J2-uppercase-STREAM.pdf:         s/stream/STREAM
+  ‣ J3-lowercase-reference.pdf:      /Contents [4 0 R 5 0 r]
+
+• [K] XREF Confusion
+  ‣ K1-xref-duplicate-obj4.pdf:      0000000347,0000000348
+  ‣ K2-xref-duplicate-obj5.pdf:      0000000489,0000000490
+  ‣ K3-xred-swap-obj4-obj5.pdf:      0000000489,0000000347
+  ‣ K4-obj-confusion-in-xref.pdf:    0 4 […] 4 1 […] 4 1
+  ‣ K5-not-in-use-confusion.pdf:     0000000489 00000 f
+  ‣ K6-not-in-use-uppercase-F.pdf:   0000000489 00000 F
+  ‣ K7-not-in-use-uppercase-N.pdf:   0000000489 00000 N
+  ‣ K8-not-in-use-with-an-x.pdf:     0000000489 00000 x
+
+=======================[ 03-pag-confusion ]=======================
+
+• [L] Page Confusion
+  ‣ L1-page-count-is-one.pdf:        Type /Pages /Count 1
+  ‣ L2-page-commented-out.pdf:       %/Type /Page
+  ‣ L3-multible-page-dicts.pdf:      << /Type /Page […] >> << /Type /Page […] >>
+
+=======================[ 04-doc-confusion ]=======================
+
+• [M] Embedded Document
+  ‣ M1-inner-outer-confusion-1.pdf:  Embedded object
+  ‣ M2-inner-outer-confusion-2.pdf:  Embedded object, wrong length
+  ‣ M3-inner-outer-confusion-3.pdf:  Embedded file
+  ‣ M4-inner-outer-confusion-4.pdf:  Embedded file, wrong length
+
+• [N] Incremental Updates
+  ‣ N1-updates-missing-trailer.pdf:  Trailer missing
+  ‣ N2-updates-missing-xref.pdf:     XRef missing
+  ‣ N3-updates-missing-eof-1.pdf:    %%EOF missing 
+  ‣ N4-updates-missing-eof-2.pdf:    %%EOF<20>
+  ‣ N5-updates-missing-eof-3.pdf:    %EOF
+  ‣ N6-updates-missing-eof-4.pdf:    %%%EOF
+  ‣ N7-updates-missing-eof-5.pdf:    x%%EOF
+
+• [O] XREF Table Confusion
+  ‣ O1-second-xref-table.pdf:        Two XRef + Trailer + EOF
+  ‣ O2-second-xref-aim-high.pdf:     XRef Offset = 0
+  ‣ O3-second-xref-aim-low.pdf:      XREf Offset = EOF
+
+=======================[ 05-pdf-confusion ]=======================
+
+• [P/Q] PDF/EOF Confusion
+  ‣ P1-obj-after-eof.pdf           %%EOF […] 5 0 obj […]
+  ‣ P2-obj-after-eof.pdf           %%EOF […] 5 0 obj […]
+  ‣ P3-obj-before-header.pdf       5 0 obj […] %PDF-1.7
+  ‣ P4-obj-before-header.pdf       5 0 obj […] %PDF-1.7
+  ‣ P5-obj-before-2nd-header.pdf   %PDF-1.7 5 0 obj […] %PDF-1.7
+  ‣ P6-obj-before-2nd-header.pdf   %PDF-1.7 5 0 obj […] %PDF-1.7
+  ‣ P7-obj-before-2nd-header2.pdf  %PDF-1. 5 0 obj […] %PDF-1.7
+  ‣ P8-obj-before-2nd-header2.pdf  %PDF-1. 5 0 obj […] %PDF-1.7
+  ‣ P9-obj-before-2nd-header3.pdf  %PDF-1 5 0 obj […] %PDF-1.7
+  ‣ PX-obj-before-2nd-header3.pdf  %PDF-1 5 0 obj […] %PDF-1.7
+  ‣ Q1-obj-before-2nd-header4.pdf  %PDF- 5 0 obj […] %PDF-1.7
+  ‣ Q2-obj-before-2nd-header4.pdf  %PDF- 5 0 obj […] %PDF-1.7
+  ‣ Q3-obj-before-2nd-header5.pdf  %PDF 5 0 obj […] %PDF-1.7
+  ‣ Q4-obj-before-2nd-header5.pdf  %PDF 5 0 obj […] %PDF-1.7
+  ‣ Q5-obj-before-2nd-header6.pdf  %%PDF-1.7 5 0 obj […] %PDF-1.7
+  ‣ Q6-obj-before-2nd-header6.pdf  %%PDF-1.7 5 0 obj […] %PDF-1.7
+  ‣ Q7-obj-before-2nd-header7.pdf  %pdf-1.7 5 0 obj […] %PDF-1.7
+  ‣ Q8-obj-before-2nd-header7.pdf  %pdf-1.7 5 0 obj […] %PDF-1.7
+  ‣ Q9-obj-before-2nd-header8.pdf  %!PS-Adobe-3.0 PDF-1.7 5 0 obj […] %PDF-1.7
+  ‣ QX-obj-before-2nd-header8.pdf  %!PS-Adobe-3.0 PDF-1.7 5 0 obj […] %PDF-1.7

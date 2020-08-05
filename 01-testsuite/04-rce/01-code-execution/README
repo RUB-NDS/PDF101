@@ -1,0 +1,6 @@
+This directory contains test cases to launch local executable files from
+disk, either when opening or when clicking somewhere into the document.
+
+• launch-windows.pdf  →  C:\Windows\System32\cmd.exe
+• launch-macos.pdf    →  /Applications/Calculator.app/Contents/MacOS/Calculator
+• launch-linux.pdf    →  mono.exe (Mono Certificate Store Sync CLI application)

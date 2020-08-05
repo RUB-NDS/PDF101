@@ -1,0 +1,2 @@
+This directory contains various test cases to trigger a connection to
+evil.com once the document is opened in a PDF consuming application.

@@ -1,0 +1,3 @@
+This directory contains results from crawling the Cisco Umbrella 1 Million
+list of domains for PDF documents and extracting the metadata and various
+types of actions. The results are available as SQLite3 database and CSV.
